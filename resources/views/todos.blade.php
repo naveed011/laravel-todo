@@ -27,6 +27,7 @@
                            <tr>
                                <td>No</td>
                                <td>Title</td>
+                               <td>Scheduled Date</td>
                                <td>Scheduled Day</td>
                                <td>Scheduled Time</td>
                            </tr>
@@ -36,6 +37,7 @@
                                <tr>
                                    <td>{{$loop->iteration}}</td>
                                    <td>{{$todo->task_title}}</td>
+                                   <td>{{$todo->scheduled_at->tz(session()->get('local_timezone'))->format('Y-m-d')}}</td>
                                    <td>{{$todo->scheduled_at->tz(session()->get('local_timezone'))->format('D')}}</td>
                                    <td>{{$todo->scheduled_at->tz(session()->get('local_timezone'))->format('h:i A')}}</td>
                                </tr>
