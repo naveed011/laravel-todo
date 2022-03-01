@@ -15,7 +15,7 @@ class Todo extends Model
         'scheduled_at'
     ];
 
-
+    protected $table = 'todos';
 
     protected function getScheduledAtAttribute($scheduled_at)
     {

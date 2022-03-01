@@ -12,7 +12,8 @@ use App\Http\Controllers\TodoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('/', TodoController::class)->only('index','store');
+Route::get('/', [TodoController::class , 'index'])->name('index');
+Route::post('/save', [TodoController::class , 'store'])->name('store');
 Route::post('save-timezone',[TodoController::class, 'saveTimeZone'])->name('save_timezone');
 
 
