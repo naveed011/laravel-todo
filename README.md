@@ -1,6 +1,6 @@
-<h2>Task Description</h2>
-<p>A todo list where user can add and see date and time of tasks according to there timezone</p>
-<h3>Approach</h3>
+<h2>Assessment - Metaschool</h2>
+<p>Create a to-do list application in Laravel. The application takes the task and deadline (day & time) to do the task as well. You can create as many tasks as you want but there is a caveat, the tasks are public and localized.</p>
+<h3>How To Do It</h3>
 <p>First of all we get user's local timezone either from browser via jsavascript or from ip adderess at server side and store it in session, whenever user adds a new todo we convert his scheduled time to utc time format and save it in database in utc format</p>
 <br/>
 <p>While fetching/displaying the records we convert utc time to user's local timezone that we have stored in session for now</p>
