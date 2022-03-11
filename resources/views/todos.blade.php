@@ -13,23 +13,52 @@
 <body>
     <div class="container mt-5">
         <div class="row">
+            <div class="col-md-12 text-center mb-3">
+                <h1>Assessment - Metaschool => Naveed _ Web Developer _ 3+</h1>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Create Tasks</div>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{route('store')}}" method="POST">
+                            <div class="form-group">
+                                <label for="task_title"></label>
+                                <input type="text" class="form-control" name="task_title" >
+                                <span class="text-danger">{{ $errors->first('task_title') }}</span>
+
+                            </div>
+                            @csrf
+                            <div class="form-group">
+                                <label for="scheduled_at"></label>
+                                <input type="datetime-local" id="scheduled_at" name="scheduled_at" class="form-control"/>
+                                <span class="text-danger">{{ $errors->first('scheduled_at') }}</span>
+                            </div>
+                            <button type="submit" class="btn btn-success" style="float:left; margin-top: 5px;">Create</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-lg-8">
                @if(session()->has('success'))
                     <h4 class="alert alert-success">{{session()->get('success')}}</h4>
                 @endif
                <div class="card">
                    <div class="card-header">
-                       <div class="card-title">Todo List</div>
+                       <div class="card-title">To-do list</div>
                    </div>
-                   <div class="card-body">
-                       <table class="table">
+                   <div class="card-body table-responsive">
+                       <table class="table table-striped">
                            <thead>
                            <tr>
-                               <td>No</td>
+                               <td>#</td>
                                <td>Title</td>
-                               <td>Scheduled Date</td>
-                               <td>Scheduled Day</td>
-                               <td>Scheduled Time</td>
+                               <td>Date</td>
+                               <td>Day</td>
+                               <td>Time</td>
                            </tr>
                            </thead>
                            <tbody>
@@ -50,31 +79,6 @@
                        </table>
                    </div>
                </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="card">
-                 <div class="card-header">
-                     <div class="card-title">Create Todo</div>
-                 </div>
-                  <div class="card-body">
-                      <form action="{{route('store')}}" method="POST">
-                          <div class="form-group">
-                              <label for="task_title"></label>
-                              <input type="text" class="form-control" name="task_title" >
-                              <span class="text-danger">{{ $errors->first('task_title') }}</span>
-
-                          </div>
-                          @csrf
-                          <div class="form-group">
-                              <label for="scheduled_at"></label>
-                              <input type="datetime-local" id="scheduled_at" name="scheduled_at" class="form-control"/>
-                              <span class="text-danger">{{ $errors->first('scheduled_at') }}</span>
-                          </div>
-                          <button type="submit" class="btn btn-primary " style="float:right; margin-top: 5px;">Add Todo</button>
-
-                      </form>
-                  </div>
-              </div>
             </div>
         </div>
     </div>
